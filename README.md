@@ -49,23 +49,41 @@ torch==1.8.0
 
 ### 环境
 
+创建一个虚拟环境后
+
 ```bash
 pip install -r requirements.txt
 ```
 
+如果提示`pytorch`无法安装，则执行
+
+```bash
+pip install torch==1.8.0+cu101 torchvision==0.9.0+cu101 torchaudio==0.8.0  -f https://download.pytorch.org/whl/torch_stable.html
+```
+
+后执行前面的命令
+
 ### 数据
+
+在根目录下运行
 
 ```bash
 bash init_data.sh
 ```
 
-### 训练
+### 运行demo
+
+```bash
+python demo.py
+```
+
+### 训练（还不支持）
 
 ```bash
 python train.py
 ```
 
-### 评估及测试
+### 评估及测试（还不支持）
 
 ```bash
 python eval.py
