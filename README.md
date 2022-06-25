@@ -30,7 +30,7 @@ THUEE Computer Program Design(2) Project (2020 Summer)
 
 - 采用[LFW](http://vis-www.cs.umass.edu/lfw/#download)数据集
 
-- 数据采用"[All images as gzipped tar file](http://vis-www.cs.umass.edu/lfw/lfw.tgz)"
+- 数据采用"All images as gzipped tar file"（下载列表中的第一个）
 
 - 标签采用"[Manually verified LFW gender labels, from Mahmoud Afifi, Abdelrahman Abdelhamed.](https://www.dropbox.com/sh/l3ezp9qyy5hid80/AAAjK6HdDScd_1rXASlsmELla?dl=0)"
 
