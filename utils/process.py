@@ -1,5 +1,5 @@
 '''
-    按照label给的性别列表，将原始数据分成female和male两个文件夹
+    按照label给的性别列表, 将原始数据分成female和male两个文件夹
     被根目录/scripts/init_data.sh脚本调用
 '''
 
@@ -23,6 +23,7 @@ class ProcessData:
         - target: 处理好之后的数据的存储路径
     
     功能: 
+        按照label给的性别列表, 将原始数据分成female和male两个文件夹
     '''
     def __init__(self, male_file, female_file, data, target):
 
@@ -30,8 +31,12 @@ class ProcessData:
         self.female_file = female_file
         self.data = data
         self.target = target
-
+    
     def check_path(self, label_file):
+        '''
+            检查目标路径是否存在
+            若不存在则创建
+        '''
         if not os.path.isdir(self.target):
             os.mkdir(self.target)
             print('Target path not exists, create it!')
@@ -40,7 +45,11 @@ class ProcessData:
             os.mkdir(target_path)
             print('Target path not exists, create it!')
 
+
     def process_img(self, label_file):
+        '''
+            按照人名列表文件处理图像
+        '''
         self.check_path(label_file)
         with open(label_file) as img_file:
             img_list = img_file.readlines()
@@ -55,7 +64,9 @@ class ProcessData:
     
 
     def name_format(self, name):
-
+        '''
+            格式化人名
+        '''
         processed_name = ''
         for char in name:
             if char >= '0' and char <= '9':
@@ -66,7 +77,9 @@ class ProcessData:
 
 
     def move_img(self, person_name, gender):
-
+        '''
+            移动图像文件
+        '''
         person_dir = os.path.join(self.data, person_name)
         target_path = os.path.join(self.target, gender)
         
@@ -79,18 +92,20 @@ class ProcessData:
                 shutil.copy(source_path, target_img)
             except:
                 print('Warning!' + source_path + person_name)
-            
+
 
     def get_gender(self, file_name):
-
+        '''
+            建议文件名与性别的映射
+        '''
         if file_name == self.female_file:
             return 'female'
         elif file_name == self.male_file:
             return 'male'
 
 
-
 def process_data():
+    
     processer = ProcessData(MALE_LABEL_PATH, FEMALE_LABEL_PATH, DATA_ROOT, PROCESS_ROOT)
     print('Process male list...')
     processer.process_img(processer.male_file)
@@ -99,7 +114,7 @@ def process_data():
     print('done')
 
 
-
 if __name__ == '__main__':
+
     process_data()
     
