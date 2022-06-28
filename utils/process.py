@@ -1,15 +1,29 @@
+'''
+    按照label给的性别列表，将原始数据分成female和male两个文件夹
+    被根目录/scripts/init_data.sh脚本调用
+'''
+
 
 import os
 import shutil
 from tqdm import tqdm
 
+# TODO: 把这坨东西丢到config里面
 MALE_LABEL_PATH = './label/male_names.txt'
 FEMALE_LABEL_PATH = './label/female_names.txt'
 DATA_ROOT = './lfw'
 PROCESS_ROOT = './processed'
 
 class ProcessData:
+    '''
+    Args:
+        - male_file: male名字列表文件的路径
+        - female_file: female名字列表文件的路径
+        - data: 原始数据的路径
+        - target: 处理好之后的数据的存储路径
     
+    功能: 
+    '''
     def __init__(self, male_file, female_file, data, target):
 
         self.male_file = male_file

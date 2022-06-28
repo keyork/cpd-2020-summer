@@ -1,3 +1,7 @@
+'''
+    花里胡哨
+    在控制台打印带颜色的log
+'''
 
 import logging
 import colorlog
