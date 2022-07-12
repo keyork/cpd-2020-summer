@@ -23,3 +23,4 @@ class XAlexNet:
                 if index < self.layer_idx:
                     param.requires_grad = False
         self.model.classifier[-1] = nn.Linear(4096, self.class_num)
+        self.name = 'AlexNet'

@@ -24,3 +24,4 @@ class XDenseNet121:
                     param.requires_grad = False
         in_features = self.model.classifier.in_features
         self.model.classifier = nn.Linear(in_features, self.class_num)
+        self.name = 'DenseNet121'

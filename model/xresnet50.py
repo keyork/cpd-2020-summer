@@ -23,3 +23,4 @@ class XResNet50:
                 if index < self.layer_idx:
                     param.requires_grad = False
         self.model.fc = nn.Linear(2048, self.class_num)
+        self.name = 'ResNet50'

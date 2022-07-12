@@ -24,3 +24,4 @@ class XMobileNetV3:
                     param.requires_grad = False
         in_features = self.model.classifier[-1].in_features
         self.model.classifier[-1] = nn.Linear(in_features, self.class_num)
+        self.name = 'MobileNetV3'
