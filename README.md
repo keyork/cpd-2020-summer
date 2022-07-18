@@ -1,7 +1,7 @@
 # cpd-2020-summer
 THUEE Computer Program Design(2) Project (2020 Summer)
 
-清华大学电子工程系 计算机程序设计基础 小学期（2022夏季学期）
+清华大学电子工程系 计算机程序设计基础 小学期（2020夏季学期）
 
 ## TODO
 - [x] 数据集下载脚本

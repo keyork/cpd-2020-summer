@@ -1,8 +1,22 @@
 
+from .loaddata import load_data
+from .settrain import get_train_set
 
 import torch
 from tqdm import tqdm
 from torch.autograd import Variable
+
+def run_test(model, config, base_config):
+
+    if config.mode == 'dataset':
+        test_dataset(model, loss_f, dataloader, save_path, is_cuda=config.cuda, batch_size=config.batch_size)
+
+def init_test(model, learning_rate, milestones, data_root, batch_size):
+
+    loss_f, optimizer, scheduler = get_train_set(model, learning_rate, milestones)
+    dataloader = load_data(data_root, batch_size)
+
+    return loss_f, optimizer, scheduler, dataloader
 
 def test_dataset(model, loss_f, dataloader, save_path, is_cuda, batch_size):
 

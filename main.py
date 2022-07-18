@@ -6,6 +6,7 @@ from config.cfg import BaseConfig
 from utils.setlog import LOGGER
 from utils.inputbox import str2bool
 from utils.train import run_train
+from utils.test import run_test
 from model.loadmodel import load_model
 
 
@@ -25,7 +26,9 @@ if __name__ == '__main__':
 
     base_config = BaseConfig()
     base_config.get_layer(config.model)
-    model = load_model(config.model, base_config.class_num, config.pretrained, base_config.layer_idx)
     if config.task == 'train':
+        model = load_model(config.model, base_config.class_num, config.pretrained, base_config.layer_idx)
         run_train(model, config, base_config)
-
+    elif config.task == 'test':
+        model = load_model(config.model, base_config.class_num, False, base_config.layer_idx)
+        run_test(model, config, base_config)
